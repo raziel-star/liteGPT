@@ -17,8 +17,8 @@ LiteGPT is a lightweight conversational AI model implemented in PyTorch.
 
 ## Installation
 ```bash
-git clone <repo_url>
-cd <repo_dir>
+git clone https://github.com/raziel-star/liteGPT/tree/main
+cd liteGPT
 pip install torch transformers
 ```
 Usage
@@ -59,3 +59,4 @@ DialogueManager: Handles generating responses from user input
 
 License
 MIT License
+
