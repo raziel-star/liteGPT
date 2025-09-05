@@ -24,7 +24,7 @@ pip install torch transformers
 Usage
 bash```
 Copy code
-python lite_gpt.py```
+python model.py```
 Type messages interactively. Use exit or quit to leave.
 
 Configuration
