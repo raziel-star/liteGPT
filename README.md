@@ -1,84 +1,61 @@
 # LiteGPT
 
-LiteGPT is a small generative transformer-based language model implemented in PyTorch. It is designed for conversational AI and text generation. The model uses a lightweight GPT architecture with multiple transformer blocks, token and positional embeddings, and a causal self-attention mechanism to generate coherent responses.
-
----
+LiteGPT is a lightweight conversational AI model implemented in PyTorch.
 
 ## Features
-
-- Generative conversational AI
-- Lightweight transformer architecture suitable for training on small datasets
-- Custom GPT-2 tokenizer with special tokens for conversation (`<BOS>`, `<EOS>`, `<user>:`, `<assistant>:`)
-- Token-level language modeling with cross-entropy loss
-- Temperature-controlled sampling for diverse outputs
-
----
+- Custom GPT-like architecture
+- Synthetic conversational corpus generation
+- Tokenization with GPT-2 tokenizer
+- Dialogue manager for interactive chat
+- GPU/CPU support
+- Model checkpoint saving/loading
 
 ## Requirements
-
 - Python 3.8+
-- PyTorch 2.x
-- Transformers library
+- PyTorch
+- Transformers
 
-Install dependencies:
-
+## Installation
 ```bash
+git clone <repo_url>
+cd <repo_dir>
 pip install torch transformers
 ```
 Usage
-Run the script to train and interact with LiteGPT:
-
-bash
+bash```
 Copy code
-python model.py
-Training:
+python lite_gpt.py```
+Type messages interactively. Use exit or quit to leave.
 
-If no corpus exists, a synthetic conversational dataset is generated.
+Configuration
+MAX_LENGTH: Maximum token sequence length
 
-The model trains on the tokenized corpus using a causal language modeling objective.
-
-Training parameters such as MAX_LENGTH, BATCH_SIZE, EPOCHS, and LR are configurable in the script.
-
-Interactive Mode:
-
-After training, the script launches a console-based chat.
-
-Type messages after the You: prompt and LiteGPT will generate responses.
-
-Type exit or quit to end the session.
-
-Model Architecture
-Embedding layers: Token embeddings + positional embeddings
-
-Transformer blocks: Multi-head causal self-attention + feed-forward layers with GELU activation, residual connections, and layer normalization
-
-Output layer: Linear projection to vocabulary logits
-
-Generation: Token-by-token sampling using softmax with temperature control
-
-Loss: Cross-entropy for predicting the next token
-
-Generative Behavior
-LiteGPT generates text in a left-to-right autoregressive manner. It can:
-
-Respond to user prompts
-
-Complete sentences or paragraphs
-
-Generate diverse outputs depending on the sampling temperature
-
-Configuration Highlights
-MAX_LENGTH: Maximum sequence length for inputs
-
-BATCH_SIZE: Number of sequences per training batch
+BATCH_SIZE: Training batch size
 
 EPOCHS: Number of training epochs
 
-LR: Learning rate for optimizer
+LR: Learning rate
 
-MAX_GENERATE_LEN: Maximum tokens generated per response
+MAX_GENERATE_LEN: Maximum tokens to generate per response
 
-DEFAULT_TEMPERATURE: Sampling temperature for generation
+DEFAULT_TEMPERATURE: Sampling temperature
 
-Author
-Created by raziel-star.
+MIN_CORPUS_LINES: Minimum lines for synthetic corpus
+
+Directories
+MODEL_DIR: Where the model checkpoint is saved
+
+DATA_DIR: Where corpus data is stored
+
+Synthetic Corpus
+Generated if no existing corpus is found. Includes user and assistant conversational samples.
+
+Model
+LiteGPTBlock: Transformer block
+
+LiteGPT: Full GPT-like model
+
+DialogueManager: Handles generating responses from user input
+
+License
+MIT License
